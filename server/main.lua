@@ -126,10 +126,10 @@ end)
 RegisterNetEvent('qb-vehicletuning:server:UpdateDrivingDistance', function(amount, plate)
     VehicleDrivingDistance[plate] = amount
     TriggerClientEvent('qb-vehicletuning:client:UpdateDrivingDistance', -1, VehicleDrivingDistance[plate], plate)
-    local result = MySQL.query.await('SELECT plate FROM player_vehicles WHERE plate = ?', {plate})
-    if result[1] ~= nil then
-        MySQL.update('UPDATE player_vehicles SET drivingdistance = ? WHERE plate = ?', {amount, plate})
-    end
+    -- local result = MySQL.query.await('SELECT plate FROM player_vehicles WHERE plate = ?', {plate})
+    -- if result[1] ~= nil then
+    --     MySQL.update('UPDATE player_vehicles SET drivingdistance = ? WHERE plate = ?', {amount, plate})
+    -- end
 end)
 
 RegisterNetEvent('qb-vehicletuning:server:LoadStatus', function(veh, plate)
